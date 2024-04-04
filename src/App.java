@@ -172,13 +172,10 @@ public class App {
     {
         ClearTerminal();
 
-        System.out.println(currentUserName);
         for (User user: usersDataList)
         {
             System.out.println(user.getUsername());
         }
-        Delay();
-        Delay();
 
         for (Card card : usersCardList)
         {
