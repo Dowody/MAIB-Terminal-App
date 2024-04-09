@@ -188,9 +188,6 @@ public class App {
             }
         }
 
-
-
-
         if (!hasDebitCard)
         {
 

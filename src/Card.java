@@ -27,4 +27,9 @@ public class Card {
     public boolean getHasDebitCard() { return hasDebitCard; }
     public double getBalance() { return balance; }
 
+    public void setBalance(double balance)
+    {
+        this.balance = balance;
+    }
+
 }

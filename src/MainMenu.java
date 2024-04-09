@@ -5,6 +5,8 @@ public class MainMenu implements MainMenuInterface {
 
     public double balance;
 
+    Card card;
+
     @Override
     public void showBalance() {
 
@@ -13,7 +15,8 @@ public class MainMenu implements MainMenuInterface {
             System.out.println("\n Account Balance: " + card.getBalance() + " MDL");
         }
 
-        System.out.println("\n1. Main Menu");
+        System.out.println("\n1. Recharge your card balance\n2. Main menu");
+
         try
         {
             System.out.print(App.YELLOW + "\nEnter your choice: " + App.RESET);
@@ -21,7 +24,8 @@ public class MainMenu implements MainMenuInterface {
 
             switch (choice)
             {
-                case 1 -> App.mainMenu();
+                case 1 -> rechargeCardBalance();
+                case 2 -> App.mainMenu();
                 default -> {
                     App.ClearTerminal();
                     System.out.println(App.RED + "\nInvalid input! Please enter a valid number.\n\n\n\n" + App.RESET);
@@ -39,6 +43,24 @@ public class MainMenu implements MainMenuInterface {
             App.ClearTerminal();
             App.mainMenu();
         }
+    }
+
+    @Override
+    public void rechargeCardBalance()
+    {
+        App.ClearTerminal();
+
+        System.out.print("Enter an amount: $");
+        double newAmount = App.sc.nextDouble();
+
+        balance = newAmount + balance;
+        card.setBalance(balance);
+
+        System.out.println(App.GREEN + "Your card balance has successfully been recharged! " + App.RESET);
+        App.Delay();
+
+        showBalance();
+
     }
 
     @Override
