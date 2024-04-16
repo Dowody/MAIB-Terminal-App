@@ -182,7 +182,6 @@ public class App {
             System.out.println(card.getHasDebitCard());
             if (card.getHolderName().equals(currentUserName))
             {
-                System.out.println("FINE");
                 hasDebitCard = true;
                 break;
             }
@@ -400,12 +399,5 @@ public class App {
 
 //   TO DO
 //
-//   1. Fulfil account and see last fulfills
-//   2. Send money function
-//   3.
-//   4.
-//   5.
 //
-//
-//      HAS DEBIT CARD PROBLEM WHEN CREATING ANY CARD
 //

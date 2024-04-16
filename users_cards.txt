@@ -1,1 +1,3 @@
 6552 4518 8769 5980, b, 06/29, 924, MAIB Daily, true, 0.0
+0938 5745 0647 1363, Mafiozzi, 06/29, 613, MAIB Platinum, true, 0.0
+5567 0783 2706 7909, Vitalie, 06/29, 513, MAIB Junior, true, 0.0

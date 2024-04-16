@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.util.InputMismatchException;
 import java.util.List;
 
@@ -12,7 +13,10 @@ public class MainMenu implements MainMenuInterface {
 
         for (Card card: App.usersCardList)
         {
-            System.out.println("\n Account Balance: " + card.getBalance() + " MDL");
+            if (App.currentUserName.equals(card.getHolderName()))
+            {
+                System.out.println("\n Account Balance: " + card.getBalance() + " MDL");
+            }
         }
 
         System.out.println("\n1. Recharge your card balance\n2. Main menu");
@@ -50,13 +54,30 @@ public class MainMenu implements MainMenuInterface {
     {
         App.ClearTerminal();
 
-        System.out.print("Enter an amount: $");
+        System.out.print("\nEnter an amount: MDL ");
         double newAmount = App.sc.nextDouble();
 
         balance = newAmount + balance;
-        card.setBalance(balance);
+        for (Card card: App.usersCardList)
+        {
+            if (App.currentUserName.equals(card.getHolderName()))
+            {
+                card.setBalance(balance);
+                DataSystem.saveCard(card);
+            }
+        }
 
-        System.out.println(App.GREEN + "Your card balance has successfully been recharged! " + App.RESET);
+        if (DataSystem.saveCard(card))
+        {
+            System.out.println(App.GREEN + "\nYour card balance has successfully been recharged! " + App.RESET);
+        }
+        else
+        {
+            System.out.println(App.RED + "\nAn error was encountered while recharging the card!" + App.RESET);
+//            App.mainMenu();
+
+        }
+
         App.Delay();
 
         showBalance();
