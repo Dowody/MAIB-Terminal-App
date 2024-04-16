@@ -2,6 +2,7 @@ public class Card {
 
     private String cardNumber;
     private String holderName;
+    private String card;
     private String expiryDate;
     private String cvv;
     private String cardType;
